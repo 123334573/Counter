@@ -1,5 +1,5 @@
 <template>
-    <el-menu-item :index="index">
+    <el-menu-item :index="menu.name" @click="handleClick">
         <i class="el-icon-setting"></i>
         <span slot="title">{{menu.title}}</span>
     </el-menu-item>
@@ -9,8 +9,10 @@
     export default {
         name: 'El_Menu_Item',
         props: {
-            menu: Object,
-            index: String
+            menu: Object
+        },
+        methods: {
+            handleClick: e => e.$router.push(e.index)
         }
     };
 </script>

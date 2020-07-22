@@ -11,16 +11,16 @@ export default new Vuex.Store({
         menus: [
             {
                 title: 'aa', children: [
-                    { title: 'aaa' },
-                    { title: 'aaa1' },
-                    { title: 'aaa2' }
+                    { title: 'aaa', name: 'foo' },
+                    { title: 'aaa1', name: 'bar' },
+                    { title: 'aaa2', name: 'foo1' }
                 ]
             },
             {
                 title: 'bb', children: [
-                    { title: 'bbba' },
-                    { title: 'bbb1' },
-                    { title: 'bbb2' }
+                    { title: 'bbba', name: 'foo2' },
+                    { title: 'bbb1', name: 'bar3' },
+                    { title: 'bbb2', name: 'foo4' }
                 ]
             }
         ]

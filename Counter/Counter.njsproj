@@ -39,6 +39,9 @@
     <Content Include="src\components\Bar.vue">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\components\Container.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\components\Foo.vue">
       <SubType>Code</SubType>
     </Content>
@@ -54,6 +57,9 @@
     <Content Include="src\store\mutations.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\views\Login.vue">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -62,6 +68,7 @@
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
     <Folder Include="src\api\" />
+    <Folder Include="src\views\" />
     <Folder Include="src\store\" />
     <Folder Include="src\store\modules\" />
   </ItemGroup>

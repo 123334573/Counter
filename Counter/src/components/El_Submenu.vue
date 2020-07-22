@@ -4,7 +4,7 @@
             <i class="el-icon-location"></i>
             <span slot="title">{{menu.title}}</span>
         </template>
-        <El_Menu_Item v-for="(child,i) in menu.children" :key="index+'-'+(i+1)" :menu="child" :index="index+'-'+(i+1)" />
+        <El_Menu_Item v-for="child in menu.children" :key="child.name" :menu="child" />
     </el-submenu>
 </template>
 

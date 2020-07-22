@@ -6,8 +6,10 @@ import store from './store/index';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
+import Container from './components/Container.vue';
 import Foo from './components/Foo.vue';
 import Bar from './components/Bar.vue';
+import Login from './views/Login.vue';
 
 Vue.config.productionTip = true;
 
@@ -20,8 +22,13 @@ Vue.use(ElementUI);
 // 或者，只是一个组件配置对象。
 // 我们晚点再讨论嵌套路由。
 const routes = [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
+    {
+        path: '/', component: Container, children: [
+            { path: '/foo', component: Foo, name: 'foo' },
+            { path: '/bar', component: Bar, name: 'bar' }
+        ]
+    },
+    { path: '/login', component: Login, name: 'login' }
 ];
 
 // 3. 创建 router 实例，然后传 `routes` 配置
