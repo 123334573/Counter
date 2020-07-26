@@ -23,7 +23,8 @@ export default new Vuex.Store({
                     { title: 'bbb2', name: 'foo4' }
                 ]
             }
-        ]
+        ],
+        token: ''
     },
     mutations,
     actions
