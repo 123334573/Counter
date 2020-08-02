@@ -4,5 +4,8 @@ export default {
     },
     setToken(state, payload) {
         state.token = payload.token;
+    },
+    setMenus(state, payload) {
+        state.menus = payload.menus;
     }
 };

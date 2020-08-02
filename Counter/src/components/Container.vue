@@ -42,11 +42,15 @@
         },
         methods: {
             ...mapActions([
-                'toggleCollapse'
+                'toggleCollapse',
+                'getMenus'
             ])
         },
         components: {
             NavMenu
+        },
+        created: function () {
+            debugger;
         }
     };
 </script>
