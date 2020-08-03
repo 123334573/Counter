@@ -50,7 +50,7 @@
             NavMenu
         },
         created: function () {
-            debugger;
+            this.$store.dispatch('getMenus');
         }
     };
 </script>

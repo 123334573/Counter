@@ -1,7 +1,7 @@
 <template>
-    <el-menu-item :index="menu.name" @click="handleClick">
-        <i class="el-icon-setting"></i>
-        <span slot="title">{{menu.title}}</span>
+    <el-menu-item :index="menu.code" @click="handleClick">
+        <i :class="menu.icon"></i>
+        <span slot="title">{{menu.name}}</span>
     </el-menu-item>
 </template>
 

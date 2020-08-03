@@ -1,8 +1,8 @@
 ﻿<template>
     <el-submenu :index="index">
         <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">{{menu.title}}</span>
+            <i :class="menu.icon"></i>
+            <span slot="title">{{menu.name}}</span>
         </template>
         <El_Menu_Item v-for="child in menu.children" :key="child.name" :menu="child" />
     </el-submenu>
