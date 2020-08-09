@@ -54,6 +54,9 @@
     <Content Include="src\store\index.js">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\store\modules\menu.js">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\store\mutations.js">
       <SubType>Code</SubType>
     </Content>

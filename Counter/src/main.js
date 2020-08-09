@@ -13,6 +13,11 @@ import Login from './views/Login.vue';
 
 Vue.config.productionTip = true;
 
+//const originalPush = VueRouter.prototype.push
+//VueRouter.prototype.push = function push(location) {
+//    return originalPush.call(this, location).catch(err => err)
+//}
+
 Vue.use(VueRouter);
 Vue.use(ElementUI);
 
@@ -25,7 +30,8 @@ const routes = [
     {
         path: '/', component: Container, children: [
             { path: '/foo', component: Foo, name: 'foo' },
-            { path: '/bar', component: Bar, name: 'bar' }
+            { path: '/bar', component: Bar, name: 'bar' },
+            { path: '/menu', component: () => import('./views/Menu.vue'), name: 'menu' }
         ]
     },
     { path: '/login', component: Login, name: 'login' }

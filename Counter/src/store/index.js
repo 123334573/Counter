@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import mutations from './mutations';
 import actions from './actions';
+import menu from './modules/menu';
 
 Vue.use(Vuex);
 
@@ -27,5 +28,8 @@ export default new Vuex.Store({
         token: ''
     },
     mutations,
-    actions
+    actions,
+    modules: {
+        menu
+    }
 });
