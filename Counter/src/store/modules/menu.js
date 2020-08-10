@@ -6,7 +6,8 @@ export default {
         treeProps: {
             children: 'children',
             label: 'name'
-        }
+        },
+        currentChildren: []
     },
     mutations: {
         setMenus(state, payload) {
@@ -14,7 +15,11 @@ export default {
         }
     },
     getters: {
-        currentChildren: state => state.menus[0].children
+        getCurrentChildren(state) {
+            return data => {
+                state.currentChildren = data
+            };
+        }
     },
     actions: {
         getMenus({ commit }) {
@@ -31,6 +36,9 @@ export default {
                     reject(err);
                 });
             });
+        },
+        getChildren({ getters }, payload) {
+            getters.getCurrentChildren(payload.data);
         }
     }
 }

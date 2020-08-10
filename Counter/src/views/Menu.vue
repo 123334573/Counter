@@ -1,6 +1,10 @@
 ﻿<template>
     <el-container>
-        <el-aside><el-tree :data="menus" :props="treeProps"></el-tree></el-aside>
+        <el-aside>
+            <el-tree :data="menus" :props="treeProps" node-key="id"
+                     highlight-current default-expand-all
+                     :expand-on-click-node="false" @node-click="handleNodeClick"></el-tree>
+        </el-aside>
         <el-container>
             <el-header>Header</el-header>
             <el-main>
@@ -56,16 +60,21 @@
         computed: {
             ...mapState([
                 'menus',
-                'treeProps'
+                'treeProps',
+                'currentChildren'
             ]),
             ...mapGetters([
-                'currentChildren'
+                'getCurrentChildren'
             ])
         },
         methods: {
             ...mapActions([
-                'getMenus'
-            ])
+                'getMenus',
+                'getChildren'
+            ]),
+            handleNodeClick(data) {
+                this.$store.dispatch('menu/getChildren', { data: (data.children || []) });
+            }
         },
         created: function () {
             this.$store.dispatch('menu/getMenus');
