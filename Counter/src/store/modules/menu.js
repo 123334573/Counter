@@ -7,18 +7,25 @@ export default {
             children: 'children',
             label: 'name'
         },
-        currentChildren: []
+        current: null,
+        currentChildren: [],
+        dialogFormVisible: false
     },
     mutations: {
         setMenus(state, payload) {
             state.menus = payload.menus;
-        }
-    },
-    getters: {
-        getCurrentChildren(state) {
-            return data => {
-                state.currentChildren = data
-            };
+        },
+        setCurrent(state, payload) {
+            state.current = payload.data;
+        },
+        setCurrentChildren(state, payload) {
+            state.currentChildren = payload.data;
+        },
+        dialogShow(state) {
+            state.dialogFormVisible = true;
+        },
+        dialogHide(state) {
+            state.dialogFormVisible = false;
         }
     },
     actions: {
@@ -37,8 +44,19 @@ export default {
                 });
             });
         },
-        getChildren({ getters }, payload) {
-            getters.getCurrentChildren(payload.data);
+        setCurrent({ commit, dispatch }, payload) {
+            commit('setCurrent', payload);
+            dispatch('setCurrentChildren', { data: payload.data.children || [] });
+
+        },
+        setCurrentChildren({ commit }, payload) {
+            commit('setCurrentChildren', payload);
+        },
+        openDialog({ commit }) {
+            commit('dialogShow');
+        },
+        closeDialog({ commit }) {
+            commit('dialogHide');
         }
     }
 }

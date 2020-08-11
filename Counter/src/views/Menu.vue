@@ -6,7 +6,13 @@
                      :expand-on-click-node="false" @node-click="handleNodeClick"></el-tree>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
+            <el-header>
+                <el-button-group>
+                    <el-button type="primary" icon="el-icon-plus" @click="openDialog"></el-button>
+                    <el-button type="primary" icon="el-icon-edit"></el-button>
+                    <el-button type="primary" icon="el-icon-delete"></el-button>
+                </el-button-group>
+            </el-header>
             <el-main>
                 <el-table :data="currentChildren" border stripe
                           style="width: 100%"
@@ -48,6 +54,7 @@
                         </template>
                     </el-table-column>-->
                 </el-table>
+                <MenuEdit></MenuEdit>
             </el-main>
         </el-container>
     </el-container>
@@ -55,29 +62,39 @@
 
 <script>
     import { createNamespacedHelpers } from 'vuex';
-    const { mapState, mapGetters, mapActions } = createNamespacedHelpers('menu');
+    const { mapState, mapActions } = createNamespacedHelpers('menu');
+    import MenuEdit from './MenuEdit.vue';
+
     export default {
+        name: 'Menu',
         computed: {
             ...mapState([
                 'menus',
                 'treeProps',
-                'currentChildren'
-            ]),
-            ...mapGetters([
-                'getCurrentChildren'
+                'current',
+                'currentChildren',
             ])
         },
         methods: {
             ...mapActions([
                 'getMenus',
-                'getChildren'
+                'setCurrent',
+                'setCurrentChildren',
+                'openDialog',
+                'closeDialog'
             ]),
             handleNodeClick(data) {
-                this.$store.dispatch('menu/getChildren', { data: (data.children || []) });
+                this.$store.dispatch('menu/setCurrent', { data });
+            },
+            handleAddClick() {
+
             }
         },
         created: function () {
             this.$store.dispatch('menu/getMenus');
+        },
+        components: {
+            MenuEdit
         }
     };
 </script>

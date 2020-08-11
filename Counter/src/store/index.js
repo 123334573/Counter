@@ -25,7 +25,11 @@ export default new Vuex.Store({
                 ]
             }
         ],
-        token: ''
+        token: '',
+        oper: {
+            add: '[ÐÂÔö]',
+            edit: '[±à¼­]'
+        }
     },
     mutations,
     actions,
