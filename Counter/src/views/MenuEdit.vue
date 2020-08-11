@@ -43,7 +43,10 @@
         computed: {
             ...mapState([
                 'dialogFormVisible'
-            ])
+            ]),
+            resetForm() {
+
+            }
         },
         methods: {
             ...mapActions([
@@ -54,9 +57,6 @@
             handleNodeClick(data) {
                 this.$store.dispatch('menu/setCurrentChildren', { data: (data.children || []) });
             }
-        },
-        created: function () {
-            this.$store.dispatch('menu/getMenus');
         }
     };
 </script>
